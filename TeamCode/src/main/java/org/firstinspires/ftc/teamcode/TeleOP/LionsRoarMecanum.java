@@ -35,7 +35,7 @@ public class LionsRoarMecanum extends LinearOpMode {
         motorBackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
 
         lift_main.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        lift_main.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        lift_main.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         lift_main.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         lift_reversed.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
@@ -79,7 +79,7 @@ public class LionsRoarMecanum extends LinearOpMode {
             }
             else {
                 lift_main.setPower(liftPower);
-                lift_reversed.setPower(liftPower);;
+                lift_reversed.setPower(liftPower);
             }
             */
             double botHeading = imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.RADIANS);
