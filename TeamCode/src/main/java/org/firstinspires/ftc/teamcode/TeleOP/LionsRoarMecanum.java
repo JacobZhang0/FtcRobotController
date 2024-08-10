@@ -59,7 +59,7 @@ public class LionsRoarMecanum extends LinearOpMode {
             double x = -gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
             double rx = gamepad1.right_stick_x;
             liftEncoderPosition = lift_main.getCurrentPosition();
-            liftPower = gamepad1.left_trigger;
+            liftPower = gamepad1.right_trigger - gamepad1.left_trigger;
 
             // This button choice was made so that it is hard to hit on accident,
             // it can be freely changed based on preference.
@@ -67,7 +67,9 @@ public class LionsRoarMecanum extends LinearOpMode {
             if (gamepad1.options) {
                 imu.resetYaw();
             }
-
+            lift_main.setPower(liftPower);
+            lift_reversed.setPower(liftPower);
+            /*
             if (liftEncoderPosition <= MIN_LIFT_POSITION) {
                 lift_main.setPower(Math.max(liftPower, 0));
                 lift_reversed.setPower(Math.max(liftPower, 0));
@@ -79,7 +81,7 @@ public class LionsRoarMecanum extends LinearOpMode {
                 lift_main.setPower(liftPower);
                 lift_reversed.setPower(liftPower);;
             }
-
+            */
             double botHeading = imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.RADIANS);
 
             // Rotate the movement direction counter to the bot's rotation
