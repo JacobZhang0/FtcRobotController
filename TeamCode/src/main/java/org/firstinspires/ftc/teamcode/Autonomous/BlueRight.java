@@ -17,7 +17,16 @@ public class BlueRight extends LinearOpMode {
         MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(11.8, 61.7, Math.toRadians(90)));
         Action driveToNet;
         driveToNet = drive.actionBuilder(drive.pose)
-                .waitSeconds(1)
+                .lineToYSplineHeading(33, Math.toRadians(0))
+                .waitSeconds(2)
+                .setTangent(Math.toRadians(90))
+                .lineToY(48)
+                .setTangent(Math.toRadians(0))
+                .lineToX(32)
+                .strafeTo(new Vector2d(44.5, 30))
+                .turn(Math.toRadians(180))
+                .lineToX(47.5)
+                .waitSeconds(3)
                 .build();
     }
     public void driveToNet() {
