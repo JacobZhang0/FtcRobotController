@@ -45,7 +45,7 @@ public class BlueRight extends LinearOpMode {
 
     }
     /*
-    Drive to net zone (avoiding alliance partner)
+    Drive to net zone (avoid alliance partner)
     Pick up alliance-specific sample
     Pick up alliance-specific sample (avoid alliance partner)
     Pick up alliance-neutral sample
