@@ -19,14 +19,8 @@ public class MeepMeepTesting {
                 .setColorScheme(new ColorSchemeBlueDark())
                 .build();
 
-        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-35, -62, Math.toRadians(90)))
-                .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))
-                .strafeToLinearHeading(new Vector2d(-47.9, -39.4), Math.toRadians(90))
-                .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))
-                .strafeToLinearHeading(new Vector2d(-58, -39), Math.toRadians(90))
-                .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))
-                .strafeToLinearHeading(new Vector2d(-56, -25), Math.toRadians(180))
-                .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))
+        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-12.5, 62, Math.toRadians(270)))
+                        .strafeTo(new Vector2d(-55, 62))
                 .build());
 
         meepMeep.setBackground(MeepMeep.Background.FIELD_INTO_THE_DEEP_JUICE_DARK)

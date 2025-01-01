@@ -19,13 +19,14 @@ public class Autonomous2024_25RedRight extends LinearOpMode {
         Action trajectory1;
 
         trajectory1 = drive.actionBuilder(drive.pose)
-                .strafeTo(new Vector2d(10, -33.1))
+                .strafeTo(new Vector2d(55, -62))
+                /*.strafeTo(new Vector2d(10, -33.1))
                 .strafeTo(new Vector2d(47.9, -39.4))
                 .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))
                 .strafeToLinearHeading(new Vector2d(58, -39), Math.toRadians(90))
                 .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))
                 .strafeToLinearHeading(new Vector2d(56, -25), Math.toRadians(0))
-                .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))
+                .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))*/
                 .build();
 
         waitForStart();
