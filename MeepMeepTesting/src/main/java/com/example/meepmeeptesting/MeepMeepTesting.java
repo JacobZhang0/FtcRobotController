@@ -14,18 +14,18 @@ public class MeepMeepTesting {
         MeepMeep meepMeep = new MeepMeep(800);
         RoadRunnerBotEntity myBot = new DefaultBotBuilder(meepMeep)
                 // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
-                .setConstraints(50, 50, Math.toRadians(180), Math.toRadians(180), 12.6)
+                .setConstraints(50, 50, Math.toRadians(180), Math.toRadians(180), 10.66446239)
                 //.setDimensions()
                 .setColorScheme(new ColorSchemeBlueDark())
                 .build();
 
-        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(12.5, -62, Math.toRadians(90)))
-                .strafeTo(new Vector2d(10, -33.1))
-                .strafeTo(new Vector2d(47.9, -39.4))
+        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-35, -62, Math.toRadians(90)))
                 .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))
-                .strafeToLinearHeading(new Vector2d(58, -39), Math.toRadians(90))
+                .strafeToLinearHeading(new Vector2d(-47.9, -39.4), Math.toRadians(90))
                 .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))
-                .strafeToLinearHeading(new Vector2d(56, -25), Math.toRadians(0))
+                .strafeToLinearHeading(new Vector2d(-58, -39), Math.toRadians(90))
+                .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))
+                .strafeToLinearHeading(new Vector2d(-56, -25), Math.toRadians(180))
                 .strafeToLinearHeading(new Vector2d(-53, -54), Math.toRadians(225))
                 .build());
 

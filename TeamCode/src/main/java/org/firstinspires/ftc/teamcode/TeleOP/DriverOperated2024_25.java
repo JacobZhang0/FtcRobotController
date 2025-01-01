@@ -20,7 +20,7 @@ public class DriverOperated2024_25 extends LinearOpMode {
 
         DcMotor shoulder = hardwareMap.dcMotor.get("Lift");
         //Servo shoulderR = hardwareMap.servo.get("Right_Shoulder");
-        CRServo elbow = hardwareMap.crservo.get("Elbow");
+        Servo elbow = hardwareMap.servo.get("Elbow");
         Servo wrist = hardwareMap.servo.get("Wrist");
         Servo thumb = hardwareMap.servo.get("Thumb");
 
@@ -37,7 +37,7 @@ public class DriverOperated2024_25 extends LinearOpMode {
 
         thumb.setPosition(0);
 
-        //elbow.setPosition(0);
+        //elbow.setDirection(Servo.Direction.REVERSE);
 
         waitForStart();
 
@@ -55,7 +55,7 @@ public class DriverOperated2024_25 extends LinearOpMode {
             double elbowMotion = - gamepad2.right_stick_y;
 
             shoulder.setPower(shoulderMotion);
-            elbow.setPower(elbowMotion);
+            //elbow.setPower(elbowMotion);
 
             if(gamepad2.left_bumper) {
                 wrist.setPosition(wrist.MIN_POSITION);
@@ -72,40 +72,40 @@ public class DriverOperated2024_25 extends LinearOpMode {
             }
 
             if(gamepad2.y) {
-                shoulder.setTargetPosition(395);
+                shoulder.setTargetPosition(420);
                 shoulder.setPower(0.25);
                 shoulder.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1500);
-                shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+                shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             }
 
             //shoulderPos += (shoulderMotion);
             //double elbowMotion = gamepad2.right_stick_y;
 
-            /*if(gamepad2.a) {
-                //elbow.setPosition(1);
+            if(gamepad2.a) {
+                elbow.setPosition(elbow.MIN_POSITION + 0.2);
                 shoulder.setTargetPosition(690);
                 shoulder.setPower(0.25);
                 shoulder.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1750);
-                shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+                shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             }
             if(gamepad2.b) {
-                //elbow.setPosition(0.2);
+                elbow.setPosition(elbow.MAX_POSITION - 0.1);
                 shoulder.setTargetPosition(50);
                 shoulder.setPower(0.25);
                 shoulder.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1750);
-                shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
+                shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             }
             if(gamepad2.x) {
-                //elbow.setPosition(1);
-                shoulder.setTargetPosition(400);
+                elbow.setPosition(elbow.MIN_POSITION + 0.1);
+                shoulder.setTargetPosition(420);
                 shoulder.setPower(0.25);
                 shoulder.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1750);
-                shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODERS);
-            }*/
+                shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            }
 
             // Denominator is the largest motor power (absolute value) or 1
             // This ensures all the powers maintain the same ratio,
@@ -123,7 +123,8 @@ public class DriverOperated2024_25 extends LinearOpMode {
 
             telemetry.addData("Shoulder postion", shoulder.getCurrentPosition());
             telemetry.addData("Thumb postion", thumb.getPosition());
-            telemetry.addData("Elbow Power", elbow.getPower());
+            telemetry.addData("Elbow Position", elbow.getPosition());
+            telemetry.addData("Wrist Position", wrist.getPosition());
             telemetry.update();
         }
     }
