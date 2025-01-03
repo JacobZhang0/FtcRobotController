@@ -58,32 +58,32 @@ public class DriverOperated2024_25 extends LinearOpMode {
             //elbow.setPower(elbowMotion);
 
             if(gamepad2.left_bumper) {
-                wrist.setPosition(wrist.MIN_POSITION);
+                wrist.setPosition(0);
             }
             if(gamepad2.right_bumper) {
-                wrist.setPosition(wrist.MAX_POSITION);
+                wrist.setPosition(1);
             }
 
-            if(gamepad2.x) {
+            if(gamepad2.left_trigger > .5){
                 thumb.setPosition(0);
             }
-            if(gamepad2.b) {
+            if(gamepad2.right_trigger > .5){
                 thumb.setPosition(1);
             }
 
-            if(gamepad2.y) {
+            /*if(gamepad2.y) {
                 shoulder.setTargetPosition(420);
                 shoulder.setPower(0.25);
                 shoulder.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1500);
                 shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            }
+            }*/
 
             //shoulderPos += (shoulderMotion);
             //double elbowMotion = gamepad2.right_stick_y;
 
             if(gamepad2.a) {
-                elbow.setPosition(elbow.MIN_POSITION + 0.2);
+                elbow.setPosition(.9169);
                 shoulder.setTargetPosition(690);
                 shoulder.setPower(0.25);
                 shoulder.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -91,7 +91,7 @@ public class DriverOperated2024_25 extends LinearOpMode {
                 shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             }
             if(gamepad2.b) {
-                elbow.setPosition(elbow.MAX_POSITION - 0.1);
+                elbow.setPosition(elbow.MAX_POSITION);
                 shoulder.setTargetPosition(50);
                 shoulder.setPower(0.25);
                 shoulder.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -99,7 +99,7 @@ public class DriverOperated2024_25 extends LinearOpMode {
                 shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             }
             if(gamepad2.x) {
-                elbow.setPosition(elbow.MIN_POSITION + 0.1);
+                elbow.setPosition(0.5);
                 shoulder.setTargetPosition(420);
                 shoulder.setPower(0.25);
                 shoulder.setMode(DcMotor.RunMode.RUN_TO_POSITION);

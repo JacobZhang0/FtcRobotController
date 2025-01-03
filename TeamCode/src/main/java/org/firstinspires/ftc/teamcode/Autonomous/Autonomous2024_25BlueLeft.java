@@ -52,7 +52,7 @@ public class Autonomous2024_25BlueLeft extends LinearOpMode {
         public class ShoulderErect implements Action {
             @Override
             public boolean run(@NonNull TelemetryPacket packet) {
-                targetPosition = 450;
+                targetPosition = 420;
                 shoulder.setTargetPosition(targetPosition);
                 shoulder.setPower(0.2);
                 shoulder.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -69,7 +69,7 @@ public class Autonomous2024_25BlueLeft extends LinearOpMode {
         public class ShoulderAllOut implements Action {
             @Override
             public boolean run(@NonNull TelemetryPacket packet) {
-                targetPosition = 700;
+                targetPosition = 690;
                 shoulder.setTargetPosition(targetPosition);
                 shoulder.setPower(0.2);
                 shoulder.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -94,7 +94,7 @@ public class Autonomous2024_25BlueLeft extends LinearOpMode {
         public class ElbowAllOut implements Action {
             @Override
             public boolean run(@NonNull TelemetryPacket packet) {
-                elbow.setPosition(0.1);
+                elbow.setPosition(0.5);
                 return false;
             }
         }
@@ -105,7 +105,7 @@ public class Autonomous2024_25BlueLeft extends LinearOpMode {
         public class ElbowAllIn implements Action {
             @Override
             public boolean run(@NonNull TelemetryPacket packet) {
-                elbow.setPosition(0.7);
+                elbow.setPosition(1);
                 return false;
             }
         }
@@ -116,7 +116,7 @@ public class Autonomous2024_25BlueLeft extends LinearOpMode {
         public class ElbowErect implements Action {
             @Override
             public boolean run(@NonNull TelemetryPacket packet) {
-                elbow.setPosition(0.55);
+                elbow.setPosition(0.9);
                 return false;
             }
         }
@@ -176,7 +176,7 @@ public class Autonomous2024_25BlueLeft extends LinearOpMode {
         public class CloseThumb implements Action {
             @Override
             public boolean run(@NonNull TelemetryPacket packet) {
-                //thumb.setPosition(1);
+                thumb.setPosition(0.8);
                 return false;
             }
         }
@@ -187,7 +187,7 @@ public class Autonomous2024_25BlueLeft extends LinearOpMode {
         public class OpenThumb implements Action {
             @Override
             public boolean run(@NonNull TelemetryPacket packet) {
-                //thumb.setPosition(0);
+                thumb.setPosition(0.5);
                 return false;
             }
         }
@@ -229,7 +229,7 @@ public class Autonomous2024_25BlueLeft extends LinearOpMode {
 
 
         Actions.runBlocking(wrist.closeWrist());
-        //Actions.runBlocking(thumb.closeThumb());
+        Actions.runBlocking(thumb.closeThumb());
 
         waitForStart();
 
@@ -239,44 +239,44 @@ public class Autonomous2024_25BlueLeft extends LinearOpMode {
                 firstSampleDrive.build(),
                 elbow.elbowAllOut(),
                 shoulder.shoulderErect(),
-                //wrist.openWrist(),
-                //thumb.openThumb(),
+                wrist.openWrist(),
+                thumb.openThumb(),
                 elbow.elbowAllIn(),
-                shoulder.shoulderAllIn()
-                //wrist.closeWrist()
+                shoulder.shoulderAllIn(),
+                wrist.closeWrist()
         ));
 
         Actions.runBlocking(new SequentialAction(
                 toSecondSample.build(),
                 elbow.elbowErect(),
                 shoulder.shoulderAllOut(),
-                //wrist.middleWrist(),
-                //thumb.closeThumb(),
+                wrist.middleWrist(),
+                thumb.closeThumb(),
                 elbow.elbowAllIn(),
                 shoulder.shoulderAllIn(),
                 toSecondSampleBasket.build(),
                 elbow.elbowAllOut(),
                 shoulder.shoulderErect(),
-                //wrist.openWrist(),
-                //thumb.openThumb(),
+                wrist.openWrist(),
+                thumb.openThumb(),
                 elbow.elbowAllIn(),
-                shoulder.shoulderAllIn()
-                //wrist.closeWrist()
+                shoulder.shoulderAllIn(),
+                wrist.closeWrist()
         ));
 
         Actions.runBlocking(new SequentialAction(
                 toThirdSample.build(),
                 elbow.elbowErect(),
                 shoulder.shoulderAllOut(),
-                //wrist.middleWrist(),
-                //thumb.closeThumb(),
+                wrist.middleWrist(),
+                thumb.closeThumb(),
                 elbow.elbowAllIn(),
                 shoulder.shoulderAllIn(),
                 toThirdSampleBasket.build(),
                 elbow.elbowAllOut(),
                 shoulder.shoulderErect(),
-                //wrist.openWrist(),
-                //thumb.openThumb(),
+                wrist.openWrist(),
+                thumb.openThumb(),
                 elbow.elbowAllIn(),
                 shoulder.shoulderAllIn()
         ));

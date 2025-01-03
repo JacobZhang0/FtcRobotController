@@ -20,7 +20,13 @@ public class MeepMeepTesting {
                 .build();
 
         myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-12.5, 62, Math.toRadians(270)))
-                        .strafeTo(new Vector2d(-55, 62))
+                .strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
+                .strafeToLinearHeading(new Vector2d(47.9, 39.4), Math.toRadians(270))
+                .strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
+                .strafeToLinearHeading(new Vector2d(58, 39), Math.toRadians(270))
+                .strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
+                .strafeToLinearHeading(new Vector2d(56, 25), Math.toRadians(0))
+                .strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
                 .build());
 
         meepMeep.setBackground(MeepMeep.Background.FIELD_INTO_THE_DEEP_JUICE_DARK)
