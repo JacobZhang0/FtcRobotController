@@ -1,0 +1,38 @@
+package com.example.meepmeeptesting;
+
+import com.acmerobotics.roadrunner.Pose2d;
+import com.acmerobotics.roadrunner.Vector2d;
+import com.noahbres.meepmeep.MeepMeep;
+import com.noahbres.meepmeep.core.colorscheme.ColorScheme;
+import com.noahbres.meepmeep.core.colorscheme.scheme.ColorSchemeBlueDark;
+import com.noahbres.meepmeep.core.colorscheme.scheme.ColorSchemeBlueLight;
+import com.noahbres.meepmeep.roadrunner.DefaultBotBuilder;
+import com.noahbres.meepmeep.roadrunner.entity.RoadRunnerBotEntity;
+
+public class MeepMeepTesting {
+    public static void main(String[] args) {
+        MeepMeep meepMeep = new MeepMeep(800);
+        RoadRunnerBotEntity myBot = new DefaultBotBuilder(meepMeep)
+                // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
+                .setConstraints(50, 50, Math.toRadians(180), Math.toRadians(180), 10.66446239)
+                //.setDimensions()
+                .setColorScheme(new ColorSchemeBlueDark())
+                .build();
+
+        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-12.5, 62, Math.toRadians(270)))
+                /*.strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
+                .strafeToLinearHeading(new Vector2d(47.9, 39.4), Math.toRadians(270))
+                .strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
+                .strafeToLinearHeading(new Vector2d(58, 39), Math.toRadians(270))
+                .strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
+                .strafeToLinearHeading(new Vector2d(56, 25), Math.toRadians(0))
+                .strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))*/
+                .build());
+
+        meepMeep.setBackground(MeepMeep.Background.FIELD_DECODE_JUICE_BLACK)
+                .setDarkMode(true)
+                .setBackgroundAlpha(0.95f)
+                .addEntity(myBot)
+                .start();
+    }
+}
