@@ -44,8 +44,6 @@ public class Autonomous2025_26BlueLeft extends LinearOpMode {
 
         if (opModeIsActive()) {
 
-
-            targetFound = false;
             desiredTag = null;
             while (!targetFound) {
                 // Step through the list of detected tags and look for a matching tag
