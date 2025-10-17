@@ -19,7 +19,8 @@ public class MeepMeepTesting {
                 .setColorScheme(new ColorSchemeBlueDark())
                 .build();
 
-        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-12.5, 62, Math.toRadians(270)))
+        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-49.25, -49.25, Math.toRadians(54)))
+                                .strafeToLinearHeading(new Vector2d(-46.4, 0), Math.toRadians(90))
                 /*.strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
                 .strafeToLinearHeading(new Vector2d(47.9, 39.4), Math.toRadians(270))
                 .strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
