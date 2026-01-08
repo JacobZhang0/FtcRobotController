@@ -5,33 +5,15 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@TeleOp (name="DriverOperated2025_26", group="TeleOp")
-public class DriverOperated2025_26 extends LinearOpMode {
-
-    private DcMotor motorFrontLeft;
-    private DcMotor motorBackLeft;
-    private DcMotor motorFrontRight;
-    private DcMotor motorBackRight;
+@TeleOp (name="Launcher", group="TeleOp")
+public class Launcher extends LinearOpMode {
     private DcMotor leftShooter;
     private DcMotor rightShooter;
 
     @Override
-    public void runOpMode()
-    {
-        motorFrontLeft = hardwareMap.dcMotor.get("Front_Left");
-        motorBackLeft = hardwareMap.dcMotor.get("Back_Left");
-        motorFrontRight = hardwareMap.dcMotor.get("Front_Right");
-        motorBackRight = hardwareMap.dcMotor.get("Back_Right");
-
+    public void runOpMode() {
         leftShooter = hardwareMap.dcMotor.get("left_shooter");
         rightShooter = hardwareMap.dcMotor.get("right_shooter");
-
-        //reverse if needed
-        leftShooter.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightShooter.setDirection(DcMotorSimple.Direction.REVERSE);
-
-        motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        motorBackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
         if (isStopRequested()) return;
@@ -55,11 +37,6 @@ public class DriverOperated2025_26 extends LinearOpMode {
                 leftShooter.setPower(0);
                 rightShooter.setPower(0);
             }
-
-            motorFrontLeft.setPower(frontLeftPower);
-            motorBackLeft.setPower(backLeftPower);
-            motorFrontRight.setPower(frontRightPower);
-            motorBackRight.setPower(backRightPower);
 
             telemetry.update();
         }

@@ -19,16 +19,30 @@ public class MeepMeepTesting {
                 .setColorScheme(new ColorSchemeBlueDark())
                 .build();
 
-        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-49.25, -49.25, Math.toRadians(54)))
-                                .strafeToLinearHeading(new Vector2d(-46.4, 0), Math.toRadians(90))
-                /*.strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
-                .strafeToLinearHeading(new Vector2d(47.9, 39.4), Math.toRadians(270))
-                .strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
-                .strafeToLinearHeading(new Vector2d(58, 39), Math.toRadians(270))
-                .strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))
-                .strafeToLinearHeading(new Vector2d(56, 25), Math.toRadians(0))
-                .strafeToLinearHeading(new Vector2d(53, 54), Math.toRadians(45))*/
+        // Red
+        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(-52.2, 47.2, Math.toRadians(125)))
+                        .strafeToLinearHeading(new Vector2d(-11.3, 12), Math.toRadians(135))
+                        .strafeToLinearHeading(new Vector2d(-11.3, 30), Math.toRadians(90))
+                        .strafeToLinearHeading(new Vector2d(-11.3, 12), Math.toRadians(135))
+                        .strafeToLinearHeading(new Vector2d(12, 30), Math.toRadians(90))
+                        .strafeToLinearHeading(new Vector2d(-11.3, 12), Math.toRadians(135))
+                        .strafeToLinearHeading(new Vector2d(36, 30), Math.toRadians(90))
+                        .strafeToLinearHeading(new Vector2d(-11.3, 12), Math.toRadians(135))
+                        .strafeToLinearHeading(new Vector2d(60, -55), Math.toRadians(90))
                 .build());
+
+        /* Blue
+        myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(61.2, -12, Math.toRadians(180)))
+                        .strafeToLinearHeading(new Vector2d(-11.3, -12), Math.toRadians(225))
+                        .strafeToLinearHeading(new Vector2d(-11.3, -30), Math.toRadians(270))
+                        .strafeToLinearHeading(new Vector2d(-11.3, -12), Math.toRadians(225))
+                        .strafeToLinearHeading(new Vector2d(12, -30), Math.toRadians(270))
+                        .strafeToLinearHeading(new Vector2d(-11.3, -12), Math.toRadians(225))
+                        .strafeToLinearHeading(new Vector2d(36, -30), Math.toRadians(270))
+                        .strafeToLinearHeading(new Vector2d(-11.3, -12), Math.toRadians(225))
+                        .strafeToLinearHeading(new Vector2d(60, 55), Math.toRadians(270))
+                .build());
+         */
 
         meepMeep.setBackground(MeepMeep.Background.FIELD_DECODE_JUICE_BLACK)
                 .setDarkMode(true)
